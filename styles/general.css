@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;800&family=Itim&display=swap');
+:root{
+    --bg-clr: hsl(240, 1%, 38%);
+    --ftr-clr: hsl(252, 8%,18%);
+    --ttl-clr: hsl(60,64%,90%);
+}
+/* *GENERAL */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    
+}
+body{
+    background-color: var(--bg-clr);
+    font-family: 'Inter',sans-serif;
+}
+/* *HEADER */
+header{
+    background-color: var(--bg-clr);
+    display: flex;
+    justify-content: space-between;
+    filter: brightness(1.1);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+header> a{
+    font-family: 'Itim',cursive;
+}
+header a{
+    color: hsl(60,64%,90%);
+    text-decoration: none;
+    padding: 1rem;
+}
+header ul{
+    align-self: center;
+    padding: 1rem;
+}
+h2{
+    text-align: center;
+    color: var(--ttl-clr);
+    padding: 1rem;
+}
+/* *FOOTER */
+footer{
+    padding: 1rem;
+    background-color: var(--ftr-clr);
+    color: #fff;
+    text-align: center;
+    width: 100vw;
+}
+footer a{
+    color: beige;
+    text-decoration: none;
+}

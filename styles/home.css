@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;800&family=Itim&display=swap');
+:root{
+    --bg-clr: hsl(240, 1%, 38%);
+    --ftr-clr: hsl(252, 8%,18%);
+    --ttl-clr: hsl(60,64%,90%);
+    --ps-clr: hsl(0, 56%, 61%);
+    --pt-clr: hsl(137, 61%, 79%);
+    --bc-clr: hsl(223, 57%, 69%);
+    --ts-clr:hsl(281, 65%, 74%);
+    --gd-clr: hsl(60, 54%, 77%);
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Inter',sans-serif;
+}
+body{
+    background-color: var(--bg-clr);
+}
+/* * Header */
+header{
+    background-color:var(--bg-clr) ;
+    padding: 1rem;
+}
+header h1{
+    text-align: center;
+    font-family: 'Itim',cursive;
+    color: var(--ttl-clr);
+    font-size: 3.5rem;
+}
+/* * Main */
+main{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .5rem;
+    font-weight: 800;
+    max-width: 350px;
+    margin: 3rem auto;
+}
+main a{
+    color: black;
+    text-decoration: none;
+    text-align: center;
+}
+main .polaroid{
+    background-color: var(--ps-clr);
+    padding: 3rem;
+}
+main .postcard{
+    background-color: var(--pt-clr);
+    padding: 3rem;
+}
+main .buttons{
+    background-color: var(--bc-clr);
+    padding: 3rem;
+}
+main .tv{
+    background-color: var(--ts-clr);
+    padding: 3rem;
+}
+main .guide{
+    background-color: var(--gd-clr);
+    padding: 3rem;
+    width: 150px;
+    justify-self: center;
+    grid-column: 1/3;
+}
+/* * Footer */
+footer{
+    padding: 1rem;
+    background-color: var(--ftr-clr);
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    bottom:0;
+    width: 100vw;
+}
+footer a{
+    color: beige;
+    text-decoration: none;
+}
+/* * Desktop */
+@media (min-width: 769px){
+    .links{
+        grid-template-columns: repeat(4,1fr);
+        grid-template-rows: repeat(4,1fr);
+        font-weight: 100;
+        max-width: 700px;
+        max-height: 700px;
+        margin: 3rem auto;
+        gap: 0rem;
+    }
+    main .polaroid{
+        z-index: 1;
+        grid-column: 1/5;
+        grid-row: 1/2;
+        padding: 2rem;
+        font-size: 1.8rem;
+        width: 525px;
+        transition: width .3s ease-in;
+    }
+    main .polaroid:hover{
+        z-index: 1;
+        grid-column: 1/5;
+        font-weight: 800;
+        width: 700px;
+    }
+    main .postcard{
+        grid-column: 4/5;
+        grid-row: 1/5;
+        padding: 2rem;
+        font-size: 1.8rem;
+        writing-mode: vertical-lr;
+        height: 325px;
+        transition: height .3s ease-in;
+    }
+    main .postcard:hover{
+        z-index: 1;
+        grid-row: 1/5;
+        font-weight: 800;
+        height: 410px;
+    }
+    main .buttons{
+        grid-row: 1/5;
+        grid-column: 1/1;
+        padding: 2rem;
+        font-size: 1.8rem;
+        writing-mode: vertical-lr;
+        height: 325px;
+        transform: translateY(85px);
+        transition: height 0.3s ease-in;
+    }
+    main .buttons:hover{
+        z-index: 1;
+        grid-row: 1/5;
+        font-weight: 800;
+        height: 410px;
+        transform: translateY(0px);
+    }
+    main .tv{
+        grid-row: 4/4;
+        grid-column: 1/5;
+        padding: 2rem;
+        font-size: 2rem;
+        width: 525px;
+        transform: translateX(175px);
+        transition: width 0.3s ease-in;
+    }
+    main .tv:hover{
+        z-index: 1;
+        grid-column: 1/5;
+        font-weight: 800;
+        width: 700px;
+        transform: translateX(0px);
+    }
+    main .guide{
+        padding: 0;
+        color: #fff;
+        grid-row: 2/4;
+        grid-column: 2/4;
+        font-size: 2rem;
+        font-weight: 800;
+        align-self: center;
+        background-color: transparent;
+        transition: color .1s ease-in;
+    }
+    main .guide:hover{
+        color: var(--ttl-clr);
+    }
+}
+/*! transition: transform decreases too slow when hover out*/
