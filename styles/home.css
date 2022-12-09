@@ -36,6 +36,7 @@ main{
     font-weight: 800;
     max-width: 350px;
     margin: 3rem auto;
+    place-content: center;
 }
 main a{
     color: black;
@@ -89,6 +90,7 @@ footer a{
         max-height: 700px;
         margin: 3rem auto;
         gap: 0rem;
+        position: relative;
     }
     main .polaroid{
         z-index: 1;
@@ -111,31 +113,32 @@ footer a{
         padding: 2rem;
         font-size: 1.8rem;
         writing-mode: vertical-lr;
-        height: 325px;
+        height: 308px;
         transition: height .3s ease-in;
     }
     main .postcard:hover{
         z-index: 1;
         grid-row: 1/5;
         font-weight: 800;
-        height: 410px;
+        height: 397px;
     }
     main .buttons{
         grid-row: 1/5;
         grid-column: 1/1;
         padding: 2rem;
-        font-size: 1.8rem;
+        font-size: 1.75rem;
         writing-mode: vertical-lr;
-        height: 325px;
-        transform: translateY(85px);
+        height: 308px;
+        min-width: 175px;
         transition: height 0.3s ease-in;
+        position: absolute;
+        bottom: 0;
     }
     main .buttons:hover{
         z-index: 1;
         grid-row: 1/5;
         font-weight: 800;
-        height: 410px;
-        transform: translateY(0px);
+        height: 397px;
     }
     main .tv{
         grid-row: 4/4;
@@ -143,15 +146,16 @@ footer a{
         padding: 2rem;
         font-size: 2rem;
         width: 525px;
-        transform: translateX(175px);
         transition: width 0.3s ease-in;
+        position: absolute;
+        bottom: 0;
+        right: 0;
     }
     main .tv:hover{
         z-index: 1;
         grid-column: 1/5;
         font-weight: 800;
         width: 700px;
-        transform: translateX(0px);
     }
     main .guide{
         padding: 0;
@@ -168,4 +172,3 @@ footer a{
         color: var(--ttl-clr);
     }
 }
-/*! transition: transform decreases too slow when hover out*/
