@@ -1,3 +1,35 @@
 header ul a:nth-child(2){
     font-weight: 800;
 }
+body{
+    min-height: 100%;
+}
+/**MAIN*/
+main{
+    margin: 2rem 1rem;
+    padding: 3rem;
+}
+main .add{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid hsl(60,64%,90%);
+    max-width: 30rem;
+    padding: 5rem 6rem;
+}
+main .add button{
+    background-color: transparent;
+    border: solid 0px;
+}
+main .add p{
+    color: hsl(60,64%,90%);
+    text-align: center;
+}
+/**Desktop*/
+@media (min-width:769px){
+    main{
+        margin: 2rem 6rem;
+    }
+    main .add{
+        padding: 6rem 8rem;
+    }
+}

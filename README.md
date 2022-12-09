@@ -4,6 +4,7 @@
 - CSS
 
 **Features**
+ - Tips on how to use each template page
 
 **Purpose**
 - In my eyes presentation is an essential part of art(photography, drawing, etc) as how the person sees a piece of art can greatly influence how they feel while looking at it.
