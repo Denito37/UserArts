@@ -6,14 +6,17 @@ body{
 }
 /**MAIN*/
 main{
-    margin: 2rem 4rem;
+    margin: 2rem 1rem;
     padding: 3rem;
+    display: grid;
+    place-content: center;
 }
 main .add{
     display: flex;
     flex-direction: column;
     border: 1px solid hsl(60,64%,90%);
     max-width: 25rem;
+    margin: 0.5rem 0rem;
     padding: 9rem 5rem;
 }
 main .add button{
@@ -30,6 +33,6 @@ main .add p{
         margin: 2rem 6rem;
     }
     main .add{
-        padding: 12rem 5rem;
+        padding: 12rem 9rem;
     }
 }

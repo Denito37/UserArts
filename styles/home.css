@@ -35,7 +35,7 @@ main{
     gap: .5rem;
     font-weight: 800;
     max-width: 350px;
-    margin: 3rem auto;
+    margin: 3rem 5rem;
     place-content: center;
 }
 main a{
@@ -91,7 +91,7 @@ footer a{
         margin: 3rem auto;
         gap: 0rem;
         position: relative;
-        scale: 1.1;
+        scale: 1.15;
     }
     main .polaroid{
         z-index: 1;

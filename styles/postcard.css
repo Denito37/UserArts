@@ -8,13 +8,16 @@ body{
 main{
     margin: 2rem 1rem;
     padding: 3rem;
+    display: grid;
+    place-content: center;
 }
 main .add{
     display: flex;
     flex-direction: column;
     border: 1px solid hsl(60,64%,90%);
     max-width: 30rem;
-    padding: 5rem 6rem;
+    margin: 0.5rem 0rem;
+    padding: 3rem 7rem;
 }
 main .add button{
     background-color: transparent;
@@ -30,6 +33,6 @@ main .add p{
         margin: 2rem 6rem;
     }
     main .add{
-        padding: 6rem 8rem;
+        padding: 6rem 12rem;
     }
 }

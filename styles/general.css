@@ -36,6 +36,11 @@ header ul{
     align-self: center;
     padding: 1rem;
 }
+@media (max-width: 500px){
+    header ul{
+        display: none;
+    }
+}
 h2{
     text-align: center;
     color: var(--ttl-clr);

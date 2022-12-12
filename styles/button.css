@@ -6,7 +6,7 @@ body{
 }
 /**MAIN*/
 main{
-    margin: 2rem 4rem;
+    margin: 2rem 1rem;
     padding: 3rem;
     display: grid;
     place-content: center;
@@ -15,8 +15,9 @@ main .add{
     display: flex;
     flex-direction: column;
     border: 1px solid hsl(60,64%,90%);
-    max-width: 11rem;
-    padding: 3rem 3rem;
+    max-width: 10rem;
+    padding: 2rem 2rem;
+    margin: .5rem 0rem;
     border-radius: 50%;
 }
 main .add button{

@@ -6,15 +6,18 @@ body{
 }
 /**MAIN*/
 main{
-    margin: 2rem 4rem;
-    padding: 3rem;
+    margin: 2rem 1rem;
+    padding: 3rem 2rem;
+    display: grid;
+    place-content: center;
 }
 main .add{
     display: flex;
     flex-direction: column;
     border: 1px solid hsl(60,64%,90%);
     max-width: 25rem;
-    padding: 5rem 5rem;
+    margin: 0.5rem 0rem;
+    padding: 4rem 4rem;
 }
 main .add button{
     background-color: transparent;
@@ -25,3 +28,9 @@ main .add p{
     text-align: center;
 }
 /**Desktop*/
+@media (min-width:769px){
+    main .add{
+        padding: 5rem 9rem;
+        aspect-ratio: 16/9;
+    }
+}
