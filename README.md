@@ -3,6 +3,7 @@
 **Bulit With**
 - HTML
 - CSS
+- JS
 
 **Features**
  - Tips on how to use each template page
