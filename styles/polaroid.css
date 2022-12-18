@@ -30,9 +30,12 @@ main .add p{
 /**Desktop*/
 @media (min-width:769px){
     main{
-        margin: 2rem 6rem;
+        margin: auto;
+        grid-template-columns: repeat(2,1fr);
+        max-width: 70vw;
     }
     main .add{
         padding: 12rem 9rem;
+        justify-self: center;
     }
 }

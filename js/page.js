@@ -1,12 +1,19 @@
 const add = document.querySelectorAll('.add button');
-const imgBox = document.querySelector('.add');
+const imgBox = document.querySelectorAll('.add');
 const main = document.querySelector('.main')
 
+main.addEventListener('click', () => { // * needs to double click for first img
+    for(let i = 0 ; i < main.childElementCount; i++){
+        main.children[i].addEventListener('click', addBlock)
+        main.children[i].addEventListener('click', addImage)
+    }
+    add[0].removeEventListener('click', addBlock); // * to prevent double block generation
+});
 
-add[0].addEventListener('click', addBlock); // * find way to add event listener to generated blocks
+
+add[0].addEventListener('click', addBlock); // * needed to make first click work
 
 function addBlock(){
-    console.log('object');
     const block = document.createElement('div');
     const blockPara = document.createElement('p');
     block.classList.add('add');
@@ -14,4 +21,7 @@ function addBlock(){
     blockPara.innerHTML = "Add Image";
     main.appendChild(block);
     block.appendChild(blockPara);
+}
+function addImage(){
+    imgBox[0].innerHTML = "RAHHHHHH"
 }

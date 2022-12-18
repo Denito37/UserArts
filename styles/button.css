@@ -29,3 +29,13 @@ main .add p{
     text-align: center;
 }
 /**Desktop*/
+@media (min-width: 769px){
+    main{
+        grid-template-columns: repeat(3,1fr);
+        max-width: 70vw;
+        margin: auto;
+    }
+    main .add{
+        justify-self: center;
+    }
+}
