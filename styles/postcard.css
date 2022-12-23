@@ -1,9 +1,6 @@
 header ul a:nth-child(2){
     font-weight: 800;
 }
-body{
-    min-height: 100%;
-}
 /**MAIN*/
 main{
     margin: 2rem 1rem;
@@ -15,27 +12,29 @@ main .add{
     display: flex;
     flex-direction: column;
     border: 1px solid hsl(60,64%,90%);
-    max-width: 30rem;
+    max-width: 20rem;
     margin: 0.5rem 0rem;
     padding: 3rem 7rem;
+    aspect-ratio: 16/9;
 }
-main .add button{
-    background-color: transparent;
-    border: solid 0px;
-}
-main .add p{
-    color: hsl(60,64%,90%);
-    text-align: center;
+main .add .image{
+    object-fit: cover;
+    padding: 1rem;
+    background: url(../images/coral_texture.svg);
+    background-color: #fff;
+    aspect-ratio: 16/9;
+    object-fit: cover;
 }
 /**Desktop*/
 @media (min-width:769px){
     main{
         margin: auto;
         grid-template-columns: repeat(2,1fr);
-        max-width: 75vw;
+        max-width: 100vw;
     }
     main .add{
         padding: 6rem 12rem;
         justify-self: center;
+        max-width: 30rem;
     }
 }

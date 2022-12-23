@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;800&family=Itim&display=swap');
 :root{
     --bg-clr: hsl(240, 1%, 38%);
     --ftr-clr: hsl(252, 8%,18%);
@@ -26,6 +27,9 @@ main section ul {
 main section img{
     display: none;
 }
+main .add p{
+    display: none;
+}
 /* * Desktop*/
 @media (min-width: 769px){
     main{
@@ -36,6 +40,7 @@ main section img{
     main section{
         flex-direction: row;
         gap: 1rem;
+        align-items: center;
     }
     main section h2{
         writing-mode: vertical-lr;
@@ -53,7 +58,45 @@ main section img{
         max-width: 100%;
         max-height: 300px;
     }
-    main section img.img3{
-        padding: 0rem 6rem;
+    main .add{
+        position: relative;
+    }
+    /* * EXAMPLES*/
+    main .add p{
+        display: block;
+        font-family: 'Itim',cursive;
+        font-size: 1.5rem;
+        color: black;
+        position: absolute;
+        bottom: 2.5rem;
+        left: 20%;
+    }
+    main .add .image{
+        padding: 1rem 1rem 4rem 1rem;
+        background-color: #fff;
+    }
+    main .add .image2{
+        object-fit: cover;
+        padding: 1rem;
+        background: url(../images/coral_texture.svg);
+        background-color: #fff;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+        object-position: top;
+    }
+    main .add .image3{
+        max-height: 200px;
+        object-fit: fill;
+        border-radius: 50%;
+        padding: 0;
+        aspect-ratio: 1/1;
+        border: 1px solid var(--ttl-clr);
+    }
+    main .add .image4{
+        aspect-ratio: 16/9;
+        padding: .5rem;
+        object-fit: cover;
+        object-position: top;
+        background-color: #111;
     }
 }

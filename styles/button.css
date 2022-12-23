@@ -1,9 +1,6 @@
 header ul a:nth-child(3){
     font-weight: 800;
 }
-body{
-    min-height: 100%;
-}
 /**MAIN*/
 main{
     margin: 2rem 1rem;
@@ -19,14 +16,14 @@ main .add{
     padding: 2rem 2rem;
     margin: .5rem 0rem;
     border-radius: 50%;
+    aspect-ratio: 1/1;
 }
-main .add button{
-    background-color: transparent;
-    border: solid 0px;
-}
-main .add p{
-    color: hsl(60,64%,90%);
-    text-align: center;
+main .add .image{
+    max-height: 150px;
+    object-fit: fill;
+    border-radius: 50%;
+    padding: 0;
+    aspect-ratio: 1/1;
 }
 /**Desktop*/
 @media (min-width: 769px){

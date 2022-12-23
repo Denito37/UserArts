@@ -1,27 +1,30 @@
-const add = document.querySelectorAll('.add button');
-const imgBox = document.querySelectorAll('.add');
-const main = document.querySelector('.main')
+const main = document.querySelector('.main');
+const userImg = document.getElementById('img');
+let choosenImg = "";
+const block = document.createElement('div');
+const block2 = document.createElement('div');
+const block3 = document.createElement('div');
+let blockArray = [block];
 
-main.addEventListener('click', () => { // * needs to double click for first img
-    for(let i = 0 ; i < main.childElementCount; i++){
-        main.children[i].addEventListener('click', addBlock)
-        main.children[i].addEventListener('click', addImage)
-    }
-    add[0].removeEventListener('click', addBlock); // * to prevent double block generation
-});
-
-
-add[0].addEventListener('click', addBlock); // * needed to make first click work
-
+addBlock()
+document.querySelector('div button').addEventListener('click', () =>{
+    const block4 = document.createElement('div')
+    blockArray.push(block2);
+})
+for(let i = 0; i < blockArray.length;i++){
+    blockArray[i].addEventListener('click', () => {
+        addBlock();
+        addImage();
+    })
+}
 function addBlock(){
-    const block = document.createElement('div');
-    const blockPara = document.createElement('p');
-    block.classList.add('add');
-    block.innerHTML = '<button> <img src="../images/add.svg" alt="add-image"></button>';
-    blockPara.innerHTML = "Add Image";
-    main.appendChild(block);
-    block.appendChild(blockPara);
+    for(let i = 0; i<blockArray.length;i++){
+        blockArray[i].classList.add('add');
+        blockArray[i].innerHTML = '<button> <img src="../images/add.svg" alt="add-image"></button> <p>add image</p>';
+        main.appendChild(blockArray[i]);
+    }
 }
 function addImage(){
-    imgBox[0].innerHTML = "RAHHHHHH"
+    blockArray[0].style.padding = "0rem";
+    blockArray[0].innerHTML = '<img class = "image" src = "../images/ARMS RG.jpeg" alt = "ARMS">';
 }

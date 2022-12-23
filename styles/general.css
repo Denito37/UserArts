@@ -8,11 +8,32 @@
 *{
     box-sizing: border-box;
     margin: 0;
-    
 }
 body{
     background-color: var(--bg-clr);
     font-family: 'Inter',sans-serif;
+}
+/* *MOBILE-MENU */
+.menu{
+    width: 0;
+    height: 0;
+    opacity: 0;
+    padding: 1.5rem;
+    background-color: var(--bg-clr);
+    position: fixed;
+    z-index: 2;
+    transition: width .3s ease-out, opacity .3s ease-out;
+}
+.menu ul{
+    display: none;
+}
+.menu a{
+    display: block;
+    text-decoration: none;
+    color: var(--ttl-clr);
+    padding: .75rem 0rem;
+    font-size: 2rem;
+    font-weight: 800;
 }
 /* *HEADER */
 header{
@@ -33,18 +54,35 @@ header a{
     padding: 1rem;
 }
 header ul{
+    display: none;
     align-self: center;
     padding: 1rem;
 }
-@media (max-width: 500px){
-    header ul{
-        display: none;
-    }
+header img{
+    padding: .5rem;
+    position: absolute;
+    right: 1rem;
+}
+#clear{
+    display: none;
 }
 h2{
     text-align: center;
     color: var(--ttl-clr);
     padding: 1rem;
+}
+/* *MAIN */
+main .add{
+    max-width: 350px;
+}
+.add button{
+    background-color: transparent;
+    border: solid 0px;
+    transition: transform .25s ease-out;
+}
+main .add p{
+    color: hsl(60,64%,90%);
+    text-align: center;
 }
 /* *FOOTER */
 footer{
@@ -57,4 +95,23 @@ footer{
 footer a{
     color: beige;
     text-decoration: none;
+}
+/* *DESKTOP */
+@media (min-width: 769px){
+    header ul{
+        display: block;
+    }
+    header img{
+        display: none;
+    }
+    .menu{
+        display: none;
+    }
+    header a:hover{
+        font-weight: 800;
+    }
+    .add button:hover{
+        transform: scale(1.1);
+        transform: translateY(-.25rem);
+    }
 }

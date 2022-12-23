@@ -1,9 +1,6 @@
 header ul a:nth-child(1){
     font-weight: 800;
 }
-body{
-    min-height: 100%;
-}
 /**MAIN*/
 main{
     margin: 2rem 1rem;
@@ -18,14 +15,12 @@ main .add{
     max-width: 25rem;
     margin: 0.5rem 0rem;
     padding: 9rem 5rem;
+    max-height: 350px;
 }
-main .add button{
-    background-color: transparent;
-    border: solid 0px;
-}
-main .add p{
-    color: hsl(60,64%,90%);
-    text-align: center;
+main .add .image{
+    padding: 2rem 2rem 6rem 2rem;
+    background-color: #fff;
+    max-height: 350px;
 }
 /**Desktop*/
 @media (min-width:769px){
@@ -35,7 +30,11 @@ main .add p{
         max-width: 70vw;
     }
     main .add{
+        max-height: 400px;
         padding: 12rem 9rem;
         justify-self: center;
+    }
+    main .add .image{
+        max-height: 400px;
     }
 }
