@@ -11,7 +11,7 @@ main{
 main .add{
     display: flex;
     flex-direction: column;
-    border: 1px solid hsl(60,64%,90%);
+    border: 2px solid hsl(60,64%,90%);
     max-width: 10rem;
     padding: 2rem 2rem;
     margin: .5rem 0rem;
@@ -29,6 +29,7 @@ main .add .image{
 @media (min-width: 769px){
     main{
         grid-template-columns: repeat(3,1fr);
+        grid-template-rows: repeat(2,1fr);
         max-width: 70vw;
         margin: auto;
     }

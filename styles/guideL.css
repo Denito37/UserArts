@@ -18,11 +18,19 @@ main section h2{
 main section ul {
     margin: 1rem 2rem;
     padding: 3rem;
-    height: 250px;
+    min-height: 250px;
+    max-height: 500px;
     overflow: scroll;
     color: #fff;
     text-align: left;
     border: solid 1px var(--ttl-clr);
+}
+article ul li h4{
+    color: var(--ttl-clr);
+    font-size: 1.125rem;
+}
+article ul li::marker{
+    color: var(--ttl-clr);
 }
 main section img{
     display: none;

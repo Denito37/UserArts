@@ -38,5 +38,6 @@ main .add:nth-child(2){
         aspect-ratio: 16/9;
         padding: .5rem ;
         background-color: #111;
+        object-position: top;
     }
 }

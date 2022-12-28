@@ -1,11 +1,15 @@
 - User Arts is a service to create photo albums in different themes with the user's choosen images.
 
+Live Site: [https://denito37.github.io/UserArts/]
+
 **Bulit With**
 - HTML
 - CSS
 - JS
 
 **Features**
+ - Takes in user's image
+ - Displays image differently based on section choosen 
  - Tips on how to use each template page
 
 **Purpose**

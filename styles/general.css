@@ -13,6 +13,9 @@ body{
     background-color: var(--bg-clr);
     font-family: 'Inter',sans-serif;
 }
+main{
+    position: relative;
+}
 /* *MOBILE-MENU */
 .menu{
     width: 0;
@@ -75,14 +78,19 @@ h2{
 main .add{
     max-width: 350px;
 }
-.add button{
+main .add label{
     background-color: transparent;
     border: solid 0px;
     transition: transform .25s ease-out;
+    width: fit-content;
+    margin: auto;
 }
 main .add p{
     color: hsl(60,64%,90%);
     text-align: center;
+}
+input[type="file"]{
+    display: none;
 }
 /* *FOOTER */
 footer{
@@ -110,7 +118,7 @@ footer a{
     header a:hover{
         font-weight: 800;
     }
-    .add button:hover{
+    .add label:hover{
         transform: scale(1.1);
         transform: translateY(-.25rem);
     }
