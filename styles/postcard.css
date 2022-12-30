@@ -3,7 +3,7 @@ header ul a:nth-child(2){
 }
 /**MAIN*/
 main{
-    margin: 2rem 1rem;
+    margin: 0rem 1rem;
     padding: 3rem;
     display: grid;
     place-content: center;
@@ -19,7 +19,7 @@ main .add{
 }
 main .add .image{
     padding: 1rem;
-    background: url(../images/coral_texture.svg);
+    background: url(../images/PC\ design\ 2.svg);
     background-color: #fff;
     aspect-ratio: 16/9;
     object-fit: cover;

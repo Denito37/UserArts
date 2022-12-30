@@ -3,11 +3,11 @@
     --bg-clr: hsl(240, 1%, 38%);
     --ftr-clr: hsl(252, 8%,18%);
     --ttl-clr: hsl(60,64%,90%);
-    --ps-clr: hsl(0, 56%, 61%);
-    --pt-clr: hsl(137, 61%, 79%);
-    --bc-clr: hsl(223, 57%, 69%);
-    --ts-clr:hsl(281, 65%, 74%);
-    --gd-clr: hsl(60, 54%, 77%);
+    --ps-clr: hsl(10, 75%, 65%);
+    --pt-clr: hsl(137, 75%, 75%);
+    --bc-clr: hsl(223, 75%, 75%);
+    --ts-clr:hsl(281, 75%, 75%);
+    --gd-clr: hsl(60, 75%, 75%);
 }
 *{
     box-sizing: border-box;
@@ -32,11 +32,11 @@ header h1{
 main{
     display:grid;
     grid-template-columns: 1fr 1fr;
-    gap: .5rem;
-    font-weight: 800;
-    max-width: 350px;
-    margin: 3rem 5rem;
     place-content: center;
+    gap: 1rem;
+    font-weight: 800;
+    min-width: 350px;
+    margin: 3rem;
 }
 main a{
     color: black;
@@ -62,7 +62,7 @@ main .tv{
 main .guide{
     background-color: var(--gd-clr);
     padding: 3rem;
-    width: 150px;
+    min-width: 150px;
     justify-self: center;
     grid-column: 1/3;
 }
@@ -79,6 +79,16 @@ footer{
 footer a{
     color: beige;
     text-decoration: none;
+}
+@media (max-width: 768px){
+    main .polaroid,
+    main .postcard,
+    main .buttons,
+    main .tv,
+    main .guide
+    {
+        border-radius: 1rem;
+    }
 }
 /* * Desktop */
 @media (min-width: 769px){
@@ -167,7 +177,7 @@ footer a{
         font-weight: 800;
         align-self: center;
         background-color: transparent;
-        transition: color .1s ease-in;
+        transition: color .25s ease-in;
     }
     main .guide:hover{
         color: var(--ttl-clr);

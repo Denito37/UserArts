@@ -3,7 +3,7 @@ header ul a:nth-child(1){
 }
 /**MAIN*/
 main{
-    margin: 2rem 1rem;
+    margin: 0rem 1rem;
     padding: 3rem;
     display: grid;
     place-content: center;

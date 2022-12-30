@@ -3,7 +3,7 @@ header ul a:nth-child(3){
 }
 /**MAIN*/
 main{
-    margin: 2rem 1rem;
+    margin: 0rem 1rem;
     padding: 3rem;
     display: grid;
     place-content: center;
@@ -25,12 +25,24 @@ main .add .image{
     padding: 0;
     aspect-ratio: 1/1;
 }
+@media (min-width: 600px){
+    main{
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(3,1fr);
+        max-width: 70vw;
+        margin: auto;
+    }
+    main .add{
+        justify-self: center;
+    }
+}
 /**Desktop*/
 @media (min-width: 769px){
     main{
         grid-template-columns: repeat(3,1fr);
         grid-template-rows: repeat(2,1fr);
         max-width: 70vw;
+        max-width: 800px;
         margin: auto;
     }
     main .add{
