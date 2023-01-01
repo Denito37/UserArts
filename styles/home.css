@@ -3,66 +3,46 @@
     --bg-clr: hsl(240, 1%, 38%);
     --ftr-clr: hsl(252, 8%,18%);
     --ttl-clr: hsl(60,64%,90%);
-    --ps-clr: hsl(10, 75%, 65%);
-    --pt-clr: hsl(137, 75%, 75%);
-    --bc-clr: hsl(223, 75%, 75%);
-    --ts-clr:hsl(281, 75%, 75%);
-    --gd-clr: hsl(60, 75%, 75%);
 }
+/* * General */
 *{
     box-sizing: border-box;
     margin: 0;
+    padding: 0;
     font-family: 'Inter',sans-serif;
 }
 body{
     background-color: var(--bg-clr);
 }
-/* * Header */
-header{
-    background-color:var(--bg-clr) ;
-    padding: 1rem;
-}
-header h1{
-    text-align: center;
-    font-family: 'Itim',cursive;
-    color: var(--ttl-clr);
-    font-size: 3.5rem;
-}
 /* * Main */
 main{
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    place-content: center;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
     gap: 1rem;
-    font-weight: 800;
     margin: 3rem;
-}
-main a{
-    color: black;
-    text-decoration: none;
     text-align: center;
 }
-main .polaroid{
-    background-color: var(--ps-clr);
-    padding: 3rem;
+main h1{
+    color: var(--ttl-clr);
+    font-size: 3rem;
+    font-family: 'itim',cursive;
 }
-main .postcard{
-    background-color: var(--pt-clr);
-    padding: 3rem;
+main p{
+    color: #fff;
 }
-main .buttons{
-    background-color: var(--bc-clr);
-    padding: 3rem;
+main button{
+    padding: 1rem;
+    font-weight: 800;
+    background-color: var(--ttl-clr);
+    border: 2px solid var(--ttl-clr);
+    border-radius: .5rem;
+    transition:background-color .25s ease-in ;
 }
-main .tv{
-    background-color: var(--ts-clr);
-    padding: 3rem;
-}
-main .guide{
-    background-color: var(--gd-clr);
-    padding: 3rem;
-    justify-self: center;
-    grid-column: 1/3;
+main button:hover{
+    background-color: transparent;
+    color: var(--ttl-clr);
+    border-color: #333;
 }
 /* * Footer */
 footer{
@@ -78,106 +58,20 @@ footer a{
     color: beige;
     text-decoration: none;
 }
-@media (max-width: 768px){
-    main .polaroid,
-    main .postcard,
-    main .buttons,
-    main .tv,
-    main .guide
-    {
-        border-radius: 1rem;
-    }
-}
 /* * Desktop */
 @media (min-width: 769px){
-    .links{
-        grid-template-columns: repeat(4,1fr);
-        grid-template-rows: repeat(4,1fr);
-        font-weight: 100;
-        max-width: 700px;
-        max-height: 700px;
-        margin: 3rem auto;
-        gap: 0rem;
-        position: relative;
-        scale: 1.15;
+    main{
+        text-align: left;
+        justify-content: left;
+        margin: 10rem;
     }
-    main .polaroid{
-        z-index: 1;
-        grid-column: 1/5;
-        grid-row: 1/2;
-        padding: 2rem;
-        font-size: 1.8rem;
-        width: 525px;
-        transition: width .3s ease-in;
+    main h1{
+        font-size: 5rem;
     }
-    main .polaroid:hover{
-        z-index: 1;
-        grid-column: 1/5;
-        font-weight: 800;
-        width: 700px;
+    main p{
+        margin: 1rem 1rem;
     }
-    main .postcard{
-        grid-column: 4/5;
-        grid-row: 1/5;
-        padding: 2rem;
-        font-size: 1.8rem;
-        writing-mode: vertical-lr;
-        height: 308px;
-        transition: height .3s ease-in;
-    }
-    main .postcard:hover{
-        z-index: 1;
-        grid-row: 1/5;
-        font-weight: 800;
-        height: 396px;
-    }
-    main .buttons{
-        grid-row: 1/5;
-        grid-column: 1/1;
-        padding: 2rem;
-        font-size: 1.75rem;
-        writing-mode: vertical-lr;
-        height: 308px;
-        min-width: 175px;
-        transition: height 0.3s ease-in;
-        position: absolute;
-        bottom: 0;
-    }
-    main .buttons:hover{
-        z-index: 1;
-        grid-row: 1/5;
-        font-weight: 800;
-        height: 397px;
-    }
-    main .tv{
-        grid-row: 4/4;
-        grid-column: 1/5;
-        padding: 2rem;
-        font-size: 2rem;
-        width: 525px;
-        transition: width 0.3s ease-in;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-    }
-    main .tv:hover{
-        z-index: 1;
-        grid-column: 1/5;
-        font-weight: 800;
-        width: 700px;
-    }
-    main .guide{
-        padding: 0;
-        color: #fff;
-        grid-row: 2/4;
-        grid-column: 2/4;
-        font-size: 2rem;
-        font-weight: 800;
-        align-self: center;
-        background-color: transparent;
-        transition: color .25s ease-in;
-    }
-    main .guide:hover{
-        color: var(--ttl-clr);
+    main button{
+        margin: 1rem 0.5rem;
     }
 }

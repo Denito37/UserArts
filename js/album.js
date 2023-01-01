@@ -3,7 +3,6 @@ const trash = document.getElementById('trash');
 const polaroid = document.getElementById('polaroid');
 const postcard = document.getElementById('postcard');
 const button = document.getElementById('button');
-const tv = document.getElementById('tv');
 
 const block = document.createElement('div');
 const block2 = document.createElement('div');
@@ -41,14 +40,6 @@ button.addEventListener('click', () =>{
         blockArray[i].classList.remove("polaroid")
     }
 })
-tv.addEventListener('click', () =>{
-    for(let i = 0; i < blockArray.length;i++){
-        blockArray[i].classList.add("tv")
-        blockArray[i].classList.remove("button")
-        blockArray[i].classList.remove("postcard")
-        blockArray[i].classList.remove("polaroid")
-    }
-})
 trash.addEventListener('click', clearImages);
 
 for(let j = 1; j< blockArray.length;j++){
@@ -81,10 +72,6 @@ for(let i = 0 ; i < blockArray.length;i++){
                 if(blockArray[i].classList.contains("button")){
                     document.querySelectorAll('.buttonImg')[i].src = reader.result;
                 }
-                if(blockArray[i].classList.contains("tv")){
-                    document.querySelectorAll('.tvImg')[i].src = reader.result;
-                }
-
                 itemsArray.push(blockArray[i].innerHTML);
                 localStorage.setItem('image', JSON.stringify(itemsArray));
                 console.log(itemsArray);
@@ -114,10 +101,6 @@ function addImage(item){
         }
         if(blockArray[i].classList.contains("button")){
             item.innerHTML = '<img class = "buttonImg">';
-        }
-        if(blockArray[i].classList.contains("tv")){
-            item.style.border = "0";
-            item.innerHTML = '<img class = "tvImg">';
         }
     }       
     

@@ -81,19 +81,6 @@ main .add .image{
     aspect-ratio: 1/1;
     object-fit: fill;
 }
-.tv{
-    max-width: 20rem;
-    margin: 0.5rem 0rem;
-    padding: 4rem 4rem;
-    aspect-ratio: 4/3;
-}
-.tvImg{
-    max-height: 300px;
-    aspect-ratio: 4/3;
-    object-fit: cover;
-    padding: 2rem 1.5rem ;
-    background-color: #999;
-}
 /**Desktop*/
 @media (min-width:769px){
     main{
