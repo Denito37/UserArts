@@ -19,25 +19,31 @@ addBlock();
 polaroid.addEventListener('click', () =>{
     for(let i = 0; i < blockArray.length;i++){
         blockArray[i].classList.add("polaroid")
+        blockArray[i].children[0].classList.add('polaroidImg')
         blockArray[i].classList.remove("button")
-        blockArray[i].classList.remove("tv")
+        blockArray[i].children[0].classList.remove('buttonImg')
         blockArray[i].classList.remove("postcard")
+        blockArray[i].children[0].classList.remove('postcardImg')
     }
 })
 postcard.addEventListener('click', () =>{
     for(let i = 0; i < blockArray.length;i++){
         blockArray[i].classList.add("postcard")
+        blockArray[i].children[0].classList.add('postcardImg')
         blockArray[i].classList.remove("button")
-        blockArray[i].classList.remove("tv")
+        blockArray[i].children[0].classList.remove('buttonImg')
         blockArray[i].classList.remove("polaroid")
+        blockArray[i].children[0].classList.remove('polaroidImg')
     }
 })
 button.addEventListener('click', () =>{
     for(let i = 0; i < blockArray.length;i++){
         blockArray[i].classList.add("button")
+        blockArray[i].children[0].classList.add('buttonImg')
         blockArray[i].classList.remove("postcard")
-        blockArray[i].classList.remove("tv")
+        blockArray[i].children[0].classList.remove('postcardImg')
         blockArray[i].classList.remove("polaroid")
+        blockArray[i].children[0].classList.remove('polaroidImg')
     }
 })
 trash.addEventListener('click', clearImages);
