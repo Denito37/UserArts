@@ -17,6 +17,7 @@ let itemsArray = localStorage.getItem('image') ? JSON.parse(localStorage.getItem
 addBlock();
 
 polaroid.addEventListener('click', () =>{
+    activeToggle(polaroid,postcard,button);
     for(let i = 0; i < blockArray.length;i++){
         blockArray[i].classList.add("polaroid")
         blockArray[i].children[0].classList.add('polaroidImg')
@@ -27,6 +28,7 @@ polaroid.addEventListener('click', () =>{
     }
 })
 postcard.addEventListener('click', () =>{
+    activeToggle(postcard,polaroid,button);
     for(let i = 0; i < blockArray.length;i++){
         blockArray[i].classList.add("postcard")
         blockArray[i].children[0].classList.add('postcardImg')
@@ -37,6 +39,7 @@ postcard.addEventListener('click', () =>{
     }
 })
 button.addEventListener('click', () =>{
+    activeToggle(button,polaroid,postcard);
     for(let i = 0; i < blockArray.length;i++){
         blockArray[i].classList.add("button")
         blockArray[i].children[0].classList.add('buttonImg')
@@ -52,14 +55,18 @@ for(let j = 1; j< blockArray.length;j++){
     blockArray[j].classList.add('hidden');
 }
 for(let u = 0; u< itemsArray.length;u++){
-    blockArray[u + 1].classList.remove('hidden');
+    if(u < 5){
+        blockArray[u + 1].classList.remove('hidden');
+    }
+    else{
+        errorMsg();
+    }
     blockArray[u].style.padding = "0rem";
     blockArray[u].style.border = "0";
     blockArray[u].innerHTML = itemsArray[u];
-    console.log(itemsArray.length);
 }
 
-for(let i = 0 ; i < blockArray.length;i++){
+for(let i = 0 ; i < blockArray.length- itemsArray.length;i++){
     document.querySelectorAll('#file')[i].addEventListener('change', function()  {
         
         const choosenImg = this.files[0];
@@ -87,6 +94,11 @@ for(let i = 0 ; i < blockArray.length;i++){
     });
 }
 
+function activeToggle(item1,item2,item3){
+    item1.classList.add('active');
+    item2.classList.remove('active');
+    item3.classList.remove('active');    
+}
 function addBlock(){
     for(let i = 0; i<blockArray.length;i++){
         blockArray[i].classList.add('add');
@@ -115,6 +127,7 @@ function clearImages(){
     console.log('bye bye');
     localStorage.clear();
     itemsArray = [];
+    window.location.reload();
 }
 function errorMsg(){
     const msg = document.createElement("div");

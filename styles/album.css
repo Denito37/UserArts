@@ -17,7 +17,7 @@ header ul a:nth-child(1){
     transition: filter .25s ease-in;
 }
 .style button:hover{
-    filter: brightness(150%);
+    filter: brightness(140%);
 }
 /**MAIN*/
 main{
@@ -46,7 +46,7 @@ main .add .image{
 }
 .polaroidImg{
     min-height: 350px;
-    padding: 1rem 1rem 5rem 1rem;
+    padding: 1rem 1rem clamp(5rem, 6rem, 8rem) 1rem;
     background-color: #fff;
     object-fit: cover;
 }
@@ -90,11 +90,9 @@ main .add .image{
         max-width: 70vw;
     }
     main .add{
-        max-height: 400px;
         justify-self: center;
     }
-    main .add .image{
-        min-height: 400px;
-        padding: 1.5rem 1.5rem 6rem 1.5rem;
-    }
+}
+.active{
+    filter: brightness(140%);
 }
