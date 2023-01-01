@@ -48,7 +48,6 @@ main .add .image{
     min-height: 350px;
     padding: 1rem 1rem 5rem 1rem;
     background-color: #fff;
-    aspect-ratio: 4/3;
     object-fit: cover;
 }
 .postcard{
@@ -63,7 +62,8 @@ main .add .image{
     background-color: #fff;
     aspect-ratio: 16/9;
     object-fit: cover;
-    max-height: 350px;
+    max-height: 210px;
+    min-width: 350px;
 }
 .button{
     max-width: 15rem;
@@ -74,7 +74,7 @@ main .add .image{
 }
 .buttonImg{
     max-height: 150px;
-    object-fit: fill;
+    min-width: 150px;
     border: 3px solid hsl(60,64%,90%);
     border-radius: 50%;
     padding: 0;
