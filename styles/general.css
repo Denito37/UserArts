@@ -92,6 +92,21 @@ main .add p{
 input[type="file"]{
     display: none;
 }
+#trash{
+    background-color: hsl(240, 1%, 38%);
+    padding: 1rem;
+    border: solid 0px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 5vh;
+    right: .5rem;
+    transition: background-color .25s ease-in, transform .25s ease-in;
+    transform: scale(.65);
+}
+#trash:hover{
+    background-color: hsl(60,64%,90%);
+    transform: scale(.8);
+}
 /* *FOOTER */
 footer{
     padding: 1rem;
@@ -121,6 +136,13 @@ footer a{
     .add label:hover{
         transform: scale(1.1);
         transform: translateY(-.25rem);
+    }
+    #trash{
+        transform: scale(.8);
+        right: 1.5rem;
+    }
+    #trash:hover{
+        transform: scale(1);
     }
 }
 .hidden{
