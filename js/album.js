@@ -16,7 +16,24 @@ let itemsArray = localStorage.getItem('image') ? JSON.parse(localStorage.getItem
 
 addBlock();
 
+window.addEventListener('load',() =>{
+    activeToggle(polaroid,postcard,button);
+    for(let i = 0; i < blockArray.length;i++){
+        blockArray[i].classList.add("polaroid")
+        blockArray[i].children[0].classList.add('polaroidImg')
+        blockArray[i].classList.remove("button")
+        blockArray[i].children[0].classList.remove('buttonImg')
+        blockArray[i].classList.remove("postcard")
+        blockArray[i].children[0].classList.remove('postcardImg')
+    }
+})
 polaroid.addEventListener('click', () =>{
+    if(window.screen.width >= 1024){
+        gridCol(2);
+    }
+    if(window.screen.width < 1023){
+        gridCol(1);
+    }
     activeToggle(polaroid,postcard,button);
     for(let i = 0; i < blockArray.length;i++){
         blockArray[i].classList.add("polaroid")
@@ -28,6 +45,12 @@ polaroid.addEventListener('click', () =>{
     }
 })
 postcard.addEventListener('click', () =>{
+    if(window.screen.width >= 1024){
+        gridCol(2);
+    }
+    if(window.screen.width < 1023){
+        gridCol(1);
+    }
     activeToggle(postcard,polaroid,button);
     for(let i = 0; i < blockArray.length;i++){
         blockArray[i].classList.add("postcard")
@@ -39,6 +62,12 @@ postcard.addEventListener('click', () =>{
     }
 })
 button.addEventListener('click', () =>{
+    if(window.screen.width >= 1024){
+        gridCol(3);
+    }
+    if(window.screen.width < 1023){
+        gridCol(2);
+    }
     activeToggle(button,polaroid,postcard);
     for(let i = 0; i < blockArray.length;i++){
         blockArray[i].classList.add("button")
@@ -51,9 +80,11 @@ button.addEventListener('click', () =>{
 })
 trash.addEventListener('click', clearImages);
 
+// * reveals new block when image is added
 for(let j = 1; j< blockArray.length;j++){
     blockArray[j].classList.add('hidden');
 }
+// * Repopulates page with elements saved in local storage
 for(let u = 0; u< itemsArray.length;u++){
     if(u < 5){
         blockArray[u + 1].classList.remove('hidden');
@@ -74,15 +105,15 @@ for(let i = 0 ; i < blockArray.length- itemsArray.length;i++){
         if(choosenImg){
             const reader = new FileReader();
             reader.addEventListener('load', () =>{
-                addImage(blockArray[i]);
+                addImage(blockArray[itemsArray.length]);
                 if(i+1 < 6){blockArray[i+1].classList.remove('hidden');}
-                if(blockArray[i].classList.contains("polaroid")){
+                if(blockArray[itemsArray.length].classList.contains("polaroid")){
                     document.querySelectorAll('.polaroidImg')[i].src = reader.result;
                 }
-                if(blockArray[i].classList.contains("postcard")){
+                if(blockArray[itemsArray.length].classList.contains("postcard")){
                     document.querySelectorAll('.postcardImg')[i].src = reader.result;
                 }
-                if(blockArray[i].classList.contains("button")){
+                if(blockArray[itemsArray.length].classList.contains("button")){
                     document.querySelectorAll('.buttonImg')[i].src = reader.result;
                 }
                 itemsArray.push(blockArray[i].innerHTML);
@@ -94,6 +125,9 @@ for(let i = 0 ; i < blockArray.length- itemsArray.length;i++){
     });
 }
 
+function gridCol(cols){
+    main.style.gridTemplateColumns = 'repeat('+cols+',1fr)';
+}
 function activeToggle(item1,item2,item3){
     item1.classList.add('active');
     item2.classList.remove('active');
@@ -116,6 +150,15 @@ function addImage(item){
         if(blockArray[i].classList.contains("postcard")){
             item.style.border = "0";
             item.innerHTML = '<img class = "postcardImg">';
+            const para = document.createElement('p');
+            para.innerText = "Summer Time"
+            para.style.color = "#111"
+            para.style.fontFamily = "Itim"
+            para.style.fontSize = "1.75rem"
+            para.style.position = "absolute"
+            para.style.bottom = "15%"
+            para.style.left = "33%"
+            item.appendChild(para);
         }
         if(blockArray[i].classList.contains("button")){
             item.innerHTML = '<img class = "buttonImg">';
@@ -140,5 +183,8 @@ function errorMsg(){
     msg.style.width = "100%";
     msgTxt.style.color = "hsl(10,70%,80%)";
     msgTxt.style.fontWeight = "700";
-    msgTxt.style.textAlign = "center";    
+    msgTxt.style.textAlign = "center"; 
+    msgTxt.addEventListener('click', () =>{
+        msg.style.display = 'none'
+    })
 }

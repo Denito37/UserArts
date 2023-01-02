@@ -4,7 +4,7 @@
     --ftr-clr: hsl(252, 8%,18%);
     --ttl-clr: hsl(60,64%,90%);
 }
-header ul a:nth-child(5){
+header ul a:nth-child(2){
     font-weight: 800;
 }
 /* * Main*/
@@ -24,6 +24,7 @@ main section ul {
     color: #fff;
     text-align: left;
     border: solid 1px var(--ttl-clr);
+    border-radius: 1rem;
 }
 article ul li h4{
     color: var(--ttl-clr);
