@@ -96,8 +96,8 @@ for(let u = 0; u< itemsArray.length;u++){
     blockArray[u].style.border = "0";
     blockArray[u].innerHTML = itemsArray[u];
 }
-
-for(let i = 0 ; i < blockArray.length- itemsArray.length;i++){
+console.table(itemsArray);
+for(let i = 0 ; i < blockArray.length - itemsArray.length;i++){
     document.querySelectorAll('#file')[i].addEventListener('change', function()  {
         
         const choosenImg = this.files[0];
@@ -107,18 +107,18 @@ for(let i = 0 ; i < blockArray.length- itemsArray.length;i++){
             reader.addEventListener('load', () =>{
                 addImage(blockArray[itemsArray.length]);
                 if(i+1 < 6){blockArray[i+1].classList.remove('hidden');}
+                if(itemsArray.length > i){blockArray[itemsArray.length+1].classList.remove('hidden');}
                 if(blockArray[itemsArray.length].classList.contains("polaroid")){
-                    document.querySelectorAll('.polaroidImg')[i].src = reader.result;
+                    document.querySelectorAll('.polaroidImg')[itemsArray.length].src = reader.result;
                 }
                 if(blockArray[itemsArray.length].classList.contains("postcard")){
-                    document.querySelectorAll('.postcardImg')[i].src = reader.result;
+                    document.querySelectorAll('.postcardImg')[itemsArray.length].src = reader.result;
                 }
                 if(blockArray[itemsArray.length].classList.contains("button")){
-                    document.querySelectorAll('.buttonImg')[i].src = reader.result;
+                    document.querySelectorAll('.buttonImg')[itemsArray.length].src = reader.result;
                 }
-                itemsArray.push(blockArray[i].innerHTML);
+                itemsArray.push(blockArray[itemsArray.length].innerHTML);
                 localStorage.setItem('image', JSON.stringify(itemsArray));
-                console.log(itemsArray);
             });
             reader.readAsDataURL(choosenImg);
         }
@@ -150,15 +150,6 @@ function addImage(item){
         if(blockArray[i].classList.contains("postcard")){
             item.style.border = "0";
             item.innerHTML = '<img class = "postcardImg">';
-            const para = document.createElement('p');
-            para.innerText = "Summer Time"
-            para.style.color = "#111"
-            para.style.fontFamily = "Itim"
-            para.style.fontSize = "1.75rem"
-            para.style.position = "absolute"
-            para.style.bottom = "15%"
-            para.style.left = "33%"
-            item.appendChild(para);
         }
         if(blockArray[i].classList.contains("button")){
             item.innerHTML = '<img class = "buttonImg">';
