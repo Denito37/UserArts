@@ -31,6 +31,7 @@ main .add{
     display: flex;
     flex-direction: column;
     border: 1px solid hsl(60,64%,90%);
+    position: relative;
 }
 main .add .image{
     min-height: 350px;
@@ -41,8 +42,8 @@ main .add .image{
 }
 .polaroid{
     max-width: 25rem;
-    margin: 0.5rem 0rem;
-    padding: 9rem 5rem;
+    margin: 1rem 0rem;
+    padding: 9rem 8.3rem;
     max-height: 350px;
 }
 .polaroidImg{
