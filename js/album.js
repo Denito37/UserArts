@@ -1,8 +1,8 @@
 const main = document.querySelector('.main');
-const trash = document.getElementById('trash');
 const polaroid = document.getElementById('polaroid');
 const postcard = document.getElementById('postcard');
 const button = document.getElementById('button');
+const trash = document.getElementById('trash');
 
 const block = document.createElement('div');
 const block2 = document.createElement('div');
@@ -10,13 +10,6 @@ const block3 = document.createElement('div');
 const block4 = document.createElement('div');
 const block5 = document.createElement('div');
 const block6 = document.createElement('div');
-const updateI = document.createElement('button');
-updateI.innerHTML = "<img src = ../images/edit.svg >";
-updateI.style.position = "absolute";
-updateI.style.top = '0';
-updateI.style.border = "solid 0px";
-updateI.style.padding = ".33rem"
-updateI.style.backgroundColor = "hsl(60,64%,90%)";
 
 let blockArray = [block,block2,block3,block4,block5,block6];
 let itemsArray = localStorage.getItem('image') ? JSON.parse(localStorage.getItem('image')) : [];
@@ -86,6 +79,8 @@ button.addEventListener('click', () =>{
     }
 })
 trash.addEventListener('click', clearImages);
+
+// * LOOPS
 // * reveals new block when image is added
 for(let j = 1; j< blockArray.length;j++){
     blockArray[j].classList.add('hidden');
@@ -102,13 +97,17 @@ for(let u = 0; u< itemsArray.length;u++){
     blockArray[u].style.border = "0";
     blockArray[u].innerHTML = itemsArray[u];
 }
-console.table(itemsArray);
+// * adds click event to each block with an image to update values
+for(let i =0;i<itemsArray.length;i++){
+    blockArray[i].classList.add('edit')
+    blockArray[i].addEventListener('click', ()=>{
+        blockArray[i].childNodes[0].style.backgroundColor = '#656'
+    })
+}
 // * Reads user image and appends it to image element
 for(let i = 0 ; i < blockArray.length - itemsArray.length;i++){
     document.querySelectorAll('#file')[i].addEventListener('change', function()  {
-        
         const choosenImg = this.files[0];
-
         if(choosenImg){
             const reader = new FileReader();
             reader.addEventListener('load', () =>{
@@ -124,6 +123,7 @@ for(let i = 0 ; i < blockArray.length - itemsArray.length;i++){
                 if(blockArray[itemsArray.length].classList.contains("button")){
                     document.querySelectorAll('.buttonImg')[itemsArray.length].src = reader.result;
                 }
+                //* save blocks to LS
                 itemsArray.push(blockArray[itemsArray.length].innerHTML);
                 localStorage.setItem('image', JSON.stringify(itemsArray));
             });
@@ -132,6 +132,7 @@ for(let i = 0 ; i < blockArray.length - itemsArray.length;i++){
     });
 }
 
+// * FUNCTIONS
 function gridCol(cols){
     main.style.gridTemplateColumns = 'repeat('+cols+',1fr)';
 }
@@ -149,26 +150,20 @@ function addBlock(){
 }
 function addImage(item){
     item.style.padding = "0rem";
-    for(let i = 0;i < blockArray.length;i++){
-        if(blockArray[i].classList.contains("polaroid")){
-            item.style.border = "0";
-            item.innerHTML = '<img class = "polaroidImg">';
-            //item.appendChild(updateI);
-        }
-        if(blockArray[i].classList.contains("postcard")){
-            item.style.border = "0";
-            item.innerHTML = '<img class = "postcardImg">';
-            //item.appendChild(updateI);
-        }
-        if(blockArray[i].classList.contains("button")){
-            item.innerHTML = '<img class = "buttonImg">';
-            //item.appendChild(updateI);
-        }
-    }       
+    if(item.classList.contains("polaroid")){
+        item.style.border = "0";
+        item.innerHTML = '<img class = "polaroidImg">';
+    }
+    if(item.classList.contains("postcard")){
+        item.style.border = "0";
+        item.innerHTML = '<img class = "postcardImg">';
+    }
+    if(item.classList.contains("button")){
+        item.innerHTML = '<img class = "buttonImg">';
+    }     
     
 }
 function clearImages(){
-    console.log('bye bye');
     localStorage.clear();
     itemsArray = [];
     window.location.reload();

@@ -16,28 +16,6 @@ body{
 main{
     position: relative;
 }
-/* *MOBILE-MENU */
-.menu{
-    width: 0;
-    height: 0;
-    opacity: 0;
-    padding: 1.5rem;
-    background-color: var(--bg-clr);
-    position: fixed;
-    z-index: 2;
-    transition: width .3s ease-out, opacity .3s ease-out;
-}
-.menu ul{
-    display: none;
-}
-.menu a{
-    display: block;
-    text-decoration: none;
-    color: var(--ttl-clr);
-    padding: .75rem 0rem;
-    font-size: 2rem;
-    font-weight: 800;
-}
 /* *HEADER */
 header{
     background-color: var(--bg-clr);
@@ -64,9 +42,6 @@ header img{
     padding: .5rem;
     position: absolute;
     right: 1rem;
-    display: none;
-}
-#clear{
     display: none;
 }
 h2{
@@ -121,15 +96,6 @@ footer a{
 }
 /* *DESKTOP */
 @media (min-width: 769px){
-    header ul{
-        display: block;
-    }
-    header img{
-        display: none;
-    }
-    .menu{
-        display: none;
-    }
     header a:hover{
         font-weight: 800;
     }
