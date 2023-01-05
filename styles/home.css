@@ -32,8 +32,10 @@ body{
         display: none;
     }
     .images img:nth-child(8){
+        max-width: 80vw;
         position: absolute;
-        left: 2rem !important;
+        left: 10vw !important;
+        right: 10vw !important;
         bottom: 3rem !important;
     }
 }
@@ -54,11 +56,12 @@ main{
 }
 main h1{
     color: var(--ttl-clr);
-    font-size: 3rem;
+    font-size: 4rem;
     font-family: 'itim',cursive;
 }
 main p{
     color: #fff;
+    font-size: 1.25rem;
 }
 main button{
     padding: 1rem;
