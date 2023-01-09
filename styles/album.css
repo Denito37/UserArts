@@ -19,6 +19,20 @@ header ul a:nth-child(1){
 .style button:hover{
     filter: brightness(140%);
 }
+/**Custom window*/
+.custom{
+    display: grid;
+    position: absolute;
+    z-index: 1;
+    margin: 0 10vw;
+}
+.change{
+    display: flex;
+    column-gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    height: 60%;
+}
 /**MAIN*/
 main{
     margin: 0rem 1rem;
@@ -48,6 +62,7 @@ main .add .image{
 }
 .polaroidImg{
     min-height: 350px;
+    min-width: 350px;
     padding: 1rem 1rem clamp(5rem, 6rem, 8rem) 1rem;
     background-color: #fff;
     position: relative;

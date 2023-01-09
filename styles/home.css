@@ -32,10 +32,10 @@ body{
         display: none;
     }
     .images img:nth-child(8){
-        max-width: 80vw;
+        max-width: 90vw;
         position: absolute;
-        left: 10vw !important;
-        right: 10vw !important;
+        left: 8vw !important;
+        right: 8vw !important;
         bottom: 3rem !important;
     }
 }
