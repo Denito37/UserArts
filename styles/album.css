@@ -19,12 +19,17 @@ header ul a:nth-child(1){
 .style button:hover{
     filter: brightness(140%);
 }
+.active{
+    filter: brightness(140%);
+}
 /**Custom window*/
 .custom{
-    display: grid;
+    border-radius: 1rem;
     position: fixed;
+    bottom: 5rem;
     z-index: 2;
     margin: 0 15%;
+    transition: transform .15s ease-out;
 }
 .change{
     display: flex;
@@ -33,7 +38,11 @@ header ul a:nth-child(1){
     justify-content: center;
     height: 60%;
 }
+.custom #exit{
+    border-radius: 50%;
+}
 .change label img{
+    margin: 0 2rem;
     transition: transform .25s ease-in;
 }
 .change label img:hover{
@@ -61,6 +70,7 @@ main .add .image{
     aspect-ratio: 4/3;
     object-fit: cover;
 }
+/**ALBUM: POLAROID*/
 .polaroid{
     max-width: 25rem;
     margin: 1rem 0rem;
@@ -75,6 +85,7 @@ main .add .image{
     position: relative;
     object-fit: cover;
 }
+/**ALBUM: POSTCARD*/
 .postcard{
     max-width: 20rem;
     margin: 0.5rem 0rem;
@@ -90,6 +101,7 @@ main .add .image{
     max-height: 210px;
     min-width: 350px;
 }
+/**ALBUM: BUTTON*/
 .button{
     max-width: 15rem;
     padding: 2rem 2rem;
@@ -107,6 +119,19 @@ main .add .image{
     aspect-ratio: 1/1;
     object-fit: fill;
 }
+/**ERROR MSG*/
+.err{
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    width: 110px;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: #f6f6d6;
+    color: hsl(10,70%,50%);
+    font-weight: 700;
+    text-align: center;
+}
 /**Desktop*/
 @media (min-width:769px){
     main{
@@ -118,9 +143,6 @@ main .add .image{
     main .add{
         justify-self: center;
     }
-}
-.active{
-    filter: brightness(140%);
 }
 .edit:hover::after{
     content: '';

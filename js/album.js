@@ -7,17 +7,17 @@ const voidZone = document.querySelector('.void');
 const custom = document.querySelector('.custom');
 const customFile = document.getElementById('change');
 const customExit = document.getElementById('exit');
-
 let blockArray = [];
 let itemsArray = localStorage.getItem('image') ? JSON.parse(localStorage.getItem('image')) : [];
-custom.style.display = 'none'
+
+custom.style.transform = 'translateY(-1000px)'
 voidZone.style.display = 'none'
 // * LOOPS
-//* populate page with 6 blocks
-for(let i = 0 ; i < 6;i++){
+//* populate page with 6 blocks ; adds 7th block that is never used to fix a glitch
+for(let i = 0 ; i < 7;i++){
     addBlock();
 }
-// * reveals new block when image is added
+// * hides unneeded boxes
 for(let j = 1; j< blockArray.length;j++){
     blockArray[j].classList.add('hidden');
 }
@@ -37,30 +37,29 @@ for(let u = 0; u< itemsArray.length;u++){
 for(let i =0;i<itemsArray.length;i++){
     blockArray[i].classList.add('edit')
     blockArray[i].addEventListener('click', ()=>{
-        custom.style.display = 'block'
+        custom.style.transform = 'translateY(0px)'
         voidZone.style.display = 'block'
+
         customFile.addEventListener('change', function(){
-            custom.style.display = 'none'
+
+            custom.style.transform = 'translateY(-1000px)'
             voidZone.style.display = 'none'
+
             const choosenImg = this.files[0];
             if(choosenImg){
                 const reader = new FileReader();
                 reader.addEventListener('load', () =>{
                     if(blockArray[itemsArray.length].classList.contains("polaroid")){
-                        document.querySelectorAll('.polaroidImg')[i].src = reader.result; // * save to LS
-                        itemsArray[i] = blockArray[i].innerHTML;
-                        localStorage.setItem('image', JSON.stringify(itemsArray));
+                        document.querySelectorAll('.polaroidImg')[i].src = reader.result;
                     }
                     if(blockArray[itemsArray.length].classList.contains("postcard")){
                         document.querySelectorAll('.postcardImg')[i].src = reader.result;
-                        itemsArray[i] = blockArray[i].innerHTML;
-                        localStorage.setItem('image', JSON.stringify(itemsArray));
                     }
                     if(blockArray[itemsArray.length].classList.contains("button")){
                         document.querySelectorAll('.buttonImg')[i].src = reader.result;
-                        itemsArray[i] = blockArray[i].innerHTML;
-                        localStorage.setItem('image', JSON.stringify(itemsArray));
                     }
+                    itemsArray[i] = blockArray[i].innerHTML;
+                    localStorage.setItem('image', JSON.stringify(itemsArray));
                 });
                 reader.readAsDataURL(choosenImg);
             }
@@ -74,9 +73,12 @@ for(let i = 0 ; i < blockArray.length - itemsArray.length;i++){
         if(choosenImg){
             const reader = new FileReader();
             reader.addEventListener('load', () =>{
+
                 addImage(blockArray[itemsArray.length]);
                 if(i+1 < 6){blockArray[i+1].classList.remove('hidden');}
+                if(itemsArray.length >= 5){errorMsg();}
                 if(itemsArray.length < 5){blockArray[itemsArray.length+1].classList.remove('hidden');}
+
                 if(blockArray[itemsArray.length].classList.contains("polaroid")){
                     document.querySelectorAll('.polaroidImg')[itemsArray.length].src = reader.result;
                 }
@@ -159,7 +161,7 @@ button.addEventListener('click', () =>{
 })
 trash.addEventListener('click', clearImages);
 customExit.addEventListener('click', () =>{
-    custom.style.display = 'none'
+    custom.style.transform = 'translateY(-1000px)'
     voidZone.style.display = 'none'
 })
 // * FUNCTIONS
@@ -176,7 +178,7 @@ function addBlock(){
     blockArray.push(blok);
     for(let i = 0; i<blockArray.length;i++){
         blockArray[i].classList.add('add');
-        blockArray[i].innerHTML = '<input type="file" id="file"> <label for = file> <img src="../images/add.svg" alt="add-image"></label> <p>add image</p>';
+        blockArray[i].innerHTML = '<input type="file" id="file" accept="image/*"> <label for = file> <img src="../images/add.svg" alt="add-image"></label> <p>add image</p>';
         main.appendChild(blockArray[i]);
     }
 }
@@ -203,15 +205,10 @@ function clearImages(){
 function errorMsg(){
     const msg = document.createElement("div");
     const msgTxt = document.createElement("p");
-    msgTxt.innerHTML = " LIMIT REACHED: EACH ALBUM CAN SET 6 IMAGES ";
+    msgTxt.innerHTML = " LIMIT REACHED: ALBUM CAN SET 6 IMAGES ";
     main.appendChild(msg);
     msg.appendChild(msgTxt);
-    msg.style.position = "absolute";
-    msg.style.top = "0";
-    msg.style.width = "100%";
-    msgTxt.style.color = "hsl(10,70%,80%)";
-    msgTxt.style.fontWeight = "700";
-    msgTxt.style.textAlign = "center"; 
+    msg.classList.add('err');
     msgTxt.addEventListener('click', () =>{
         msg.style.display = 'none'
     })
