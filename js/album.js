@@ -3,12 +3,15 @@ const polaroid = document.getElementById('polaroid');
 const postcard = document.getElementById('postcard');
 const button = document.getElementById('button');
 const trash = document.getElementById('trash');
+const voidZone = document.querySelector('.void');
 const custom = document.querySelector('.custom');
 const customFile = document.getElementById('change');
 const customExit = document.getElementById('exit');
 
 let blockArray = [];
 let itemsArray = localStorage.getItem('image') ? JSON.parse(localStorage.getItem('image')) : [];
+custom.style.display = 'none'
+voidZone.style.display = 'none'
 // * LOOPS
 //* populate page with 6 blocks
 for(let i = 0 ; i < 6;i++){
@@ -30,11 +33,38 @@ for(let u = 0; u< itemsArray.length;u++){
     blockArray[u].style.border = "0";
     blockArray[u].innerHTML = itemsArray[u];
 }
-// * adds click event to each block with an image to update values
+// * adds click event to update values
 for(let i =0;i<itemsArray.length;i++){
     blockArray[i].classList.add('edit')
     blockArray[i].addEventListener('click', ()=>{
-        //custom.style.display = 'block'
+        custom.style.display = 'block'
+        voidZone.style.display = 'block'
+        customFile.addEventListener('change', function(){
+            custom.style.display = 'none'
+            voidZone.style.display = 'none'
+            const choosenImg = this.files[0];
+            if(choosenImg){
+                const reader = new FileReader();
+                reader.addEventListener('load', () =>{
+                    if(blockArray[itemsArray.length].classList.contains("polaroid")){
+                        document.querySelectorAll('.polaroidImg')[i].src = reader.result; // * save to LS
+                        itemsArray[i] = blockArray[i].innerHTML;
+                        localStorage.setItem('image', JSON.stringify(itemsArray));
+                    }
+                    if(blockArray[itemsArray.length].classList.contains("postcard")){
+                        document.querySelectorAll('.postcardImg')[i].src = reader.result;
+                        itemsArray[i] = blockArray[i].innerHTML;
+                        localStorage.setItem('image', JSON.stringify(itemsArray));
+                    }
+                    if(blockArray[itemsArray.length].classList.contains("button")){
+                        document.querySelectorAll('.buttonImg')[i].src = reader.result;
+                        itemsArray[i] = blockArray[i].innerHTML;
+                        localStorage.setItem('image', JSON.stringify(itemsArray));
+                    }
+                });
+                reader.readAsDataURL(choosenImg);
+            }
+        })
     })
 }
 // * Reads user image and appends it to image element
@@ -128,7 +158,10 @@ button.addEventListener('click', () =>{
     }
 })
 trash.addEventListener('click', clearImages);
-
+customExit.addEventListener('click', () =>{
+    custom.style.display = 'none'
+    voidZone.style.display = 'none'
+})
 // * FUNCTIONS
 function gridCol(cols){
     main.style.gridTemplateColumns = 'repeat('+cols+',1fr)';
@@ -183,29 +216,3 @@ function errorMsg(){
         msg.style.display = 'none'
     })
 }
-
-custom.style.display = 'none'
-//* update image feature in developement
-/*
-customExit.addEventListener('click', () =>{
-    custom.style.display = 'none'
-})
-customFile.addEventListener('change', function(){
-    const choosenImg = this.files[0];
-    if(choosenImg){
-        const reader = new FileReader();
-        reader.addEventListener('load', () =>{
-            if(blockArray[itemsArray.length].classList.contains("polaroid")){
-                document.querySelectorAll('.polaroidImg')[0].src = reader.result; // * get target and the save to LS
-            }
-            if(blockArray[itemsArray.length].classList.contains("postcard")){
-                document.querySelectorAll('.postcardImg')[0].src = reader.result;
-            }
-            if(blockArray[itemsArray.length].classList.contains("button")){
-                document.querySelectorAll('.buttonImg')[0].src = reader.result;
-            }
-        });
-        reader.readAsDataURL(choosenImg);
-    }
-})
-*/

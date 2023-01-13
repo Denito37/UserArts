@@ -89,6 +89,8 @@ main .add p{
         padding: 1rem;
         background: url(../images/coral_texture.svg);
         background-color: #fff;
+        width: 350px;
+        height: 196.88px;
         aspect-ratio: 16/9;
         object-fit: cover;
         object-position: top;

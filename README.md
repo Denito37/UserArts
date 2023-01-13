@@ -6,10 +6,13 @@ Live Site: [https://denito37.github.io/UserArts/]
 - HTML
 - CSS
 - JS
+- local storage
 
 **Features**
  - Takes in user's image
  - Displays image differently based on section choosen 
+ - update invidual images
+ - delete album 
  - Tips on how to use each template page
 
 **Purpose**
